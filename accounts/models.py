@@ -19,3 +19,8 @@ def create_profile(sender, **kwargs):
 
 
 post_save.connect(create_profile, sender=User)
+
+
+class Weight(models.Model):
+    weight = models.CharField(max_length=3, default="")
+
