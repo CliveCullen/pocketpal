@@ -1,0 +1,16 @@
+.container-fluid{
+    background-color: white;
+}
+
+.navbar navbar-default{
+    margin-top: 1px;
+}
+
+
+#reg{
+    padding-right: 15px;
+}
+
+#home_background{
+    background: url("/static/media/bg.jpg");
+}

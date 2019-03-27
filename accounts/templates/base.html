@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css">
+
+    {% block head %}
+    <title>Title</title>
+    {% endblock %}
+</head>
+<body>
+<br>
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Pocket Pal </a>
+        </div>
+        {% if user.is_authenticated %}
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/account">Home</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a href="{% url 'view_profile' %}">Profile</a></li>
+            <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+            <li><a href="{% url 'change_password' %}">Change Password</a></li>
+            <li><a href="{% url 'reset_password' %}">Reset Password</a></li>
+        </ul>
+        {% else %}
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id = "reg"><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+        {% endif %}
+
+    </nav>
+</div>
+
+
+<div class="container">
+    {% block body %}
+
+    <h1>Base</h1>
+
+    {% endblock %}
+</div>
+</body>
+</html>
