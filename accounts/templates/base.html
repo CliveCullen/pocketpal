@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style> /* set the CSS */
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+</style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    {% load static %}
+     {% load static %}
+    <script type="text/javascript" src="{% static 'accounts/app.js' %}" ></script>
+<!--    js file for d3-->
+
     <link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css">
 
+<!--    css file for d3-->
     {% block head %}
+
+
     <title>Title</title>
     {% endblock %}
 </head>
@@ -33,17 +48,17 @@
         {% else %}
         <ul class="nav navbar-nav">
             <li><a href="{% url 'login' %}">Login</a></li>
-        <ul class="nav navbar-nav navbar-right">
-            <li id = "reg"><a href="{% url 'register' %}">Register</a></li>
-        </ul>
-        {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+                <li id="reg"><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+            {% endif %}
 
     </nav>
 </div>
 
 
 <div class="container">
-        </ul>
+    </ul>
     {% block body %}
 
     <h1>Base</h1>
@@ -51,4 +66,5 @@
     {% endblock %}
 </div>
 </body>
+<script src="http://d3js.org/d3.v3.js"></script>
 </html>
